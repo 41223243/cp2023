@@ -267,6 +267,49 @@ void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, 
     gdImagePolygon(img, points, 4, color);
     }
 }</pre>
+<h1>w7</h1>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;gdfonts.h&gt;
+
+void drawJapaneseFlag() {
+    int flagWidth = 300;
+    int flagHeight = 200;
+
+    gdImagePtr img;
+    FILE *pngout;
+
+    img = gdImageCreateTrueColor(flagWidth, flagHeight);
+
+    // 設置白色背景
+    int white = gdImageColorAllocate(img, 255, 255, 255);
+    gdImageFill(img, 0, 0, white);
+
+    // 設置紅色
+    int red = gdImageColorAllocate(img, 255, 0, 0);
+
+    // 繪製紅色圓圈
+    int circleRadius = 50;
+    int circleCenterX = flagWidth / 2;
+    int circleCenterY = flagHeight / 2;
+
+    gdImageFilledEllipse(img, circleCenterX, circleCenterY, circleRadius * 2, circleRadius * 2, red);
+
+    // 輸出 PNG 文件
+    pngout = fopen("japanese_flag.png", "wb");
+    gdImagePng(img, pngout);
+
+    // 釋放內存
+    gdImageDestroy(img);
+    fclose(pngout);
+}
+
+int main() {
+    drawJapaneseFlag();
+    return 0;
+}</pre>
+<p><img alt="" height="250" src="/images/下載.png" width="375"/></p>
+<p>日本國旗</p>
 <h1>w12</h1>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">  #include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
