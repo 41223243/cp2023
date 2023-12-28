@@ -185,50 +185,348 @@ int main() {
 }</pre>
 <p><img alt="" height="250" src="./../images/下載.png" width="375"/></p>
 <p>日本國旗</p>
-<p><img alt="" height="250" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQCAYAAAByNR6YAAAAAXNSR0IArs4c6QAAHgBJREFUeF7t3VF2HLmRQFHqX3vpXcyitYvZy/zXHPaYbQ5NqYDKADICcftXWUjgBtTnuUjbPx6Px+PNPwQIECBAgAABAmECPwRWmKWFCBAgQIAAAQJ/CwgsF4EAAQIECBAgECwgsIJBLUeAAAECBAgQEFjuAAECBAgQIEAgWEBgBYNajgABAgQIECAgsNwBAgQIECBAgECwgMAKBrUcAQIECBAgQEBguQMECBAgQIAAgWABgRUMajkCBAgQIECAgMByBwgQIECAAAECwQICKxjUcgQIECBAgAABgeUOECBAgAABAgSCBQRWMKjlCBAgQIAAAQICyx0gQIAAAQIECAQLCKxgUMsRIECAAAECBASWO0CAAAECBAgQCBYQWMGgliNAgAABAgQICCx3gAABAgQIECAQLCCwgkEtR4AAAQIECBAQWO4AAQIECBAgQCBYQGAFg1qOAAECBAgQICCw3AECBAgQIECAQLCAwAoGtRwBAgQIECBAQGC5AwQIECBAgACBYAGBFQxqOQIECBAgQICAwHIHCBAgQIAAAQLBAgIrGNRyBAgQIECAAAGB5Q4QIECAAAECBIIFBFYwqOUIECBAgAABAgLLHSBAgAABAgQIBAsIrGBQyxEgQIAAAQIEBJY7QIAAAQIECBAIFhBYwaCWI0CAAAECBAgILHeAAAECBAgQIBAsILCCQS1HgAABAgQIEBBY7gABAgQIECBAIFhAYAWDWo4AAQIECBAgILDcAQIECBAgQIBAsIDACga1HAECBAgQIEBAYLkDBAgQIECAAIFgAYEVDGo5AgQIECBAgIDAcgcIECBAgAABAsECAisY1HIECBAgQIAAAYHlDhAgQIAAAQIEggUEVjCo5QgQIECAAAECAssdIECAAAECBAgECwisYFDLESBAgAABAgQEljtAgAABAgQIEAgWEFjBoJYjQIAAAQIECAgsd4AAAQIECBAgECwgsIJBLUeAAAECBAgQEFjuAAECBAgQIEAgWEBgBYNajgABAgQIECAgsNwBAgQIECBAgECwgMAKBrUcAQIECBAgQEBguQMECBAgQIAAgWABgRUMajkCBAgQIECAgMByBwgQIECAAAECwQICKxjUcgQIECBAgAABgeUOECBA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" width="375"/></p>
-<p>失敗的韓國</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
+<p><img alt="" height="250" src="./../images/output.png" width="375"/></p>
+<p>韓國</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;gd.h&gt;
+#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 
-void draw_south_korea_flag(gdImagePtr img);
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
 int main() {
-    // 設定圖片大小（這裡僅為示例，實際大小需根據需求調整）
-    int width = 600;
-    int height = 400;
+    gdImagePtr im;
+    FILE *output;
+    int white, red, blue, black;
 
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
+    im = gdImageCreateTrueColor(600, 400);
+    white = gdImageColorAllocate(im, 255, 255, 255);
+    red = gdImageColorAllocate(im, 225, 0, 0);
+    blue = gdImageColorAllocate(im, 0, 0, 225);
+    black = gdImageColorAllocate(im, 0, 0, 0);
 
-    draw_korean_flag(img);
+    // 填充白色背景
+    gdImageFilledRectangle(im, 0, 0, 599, 399, white);
 
-    FILE *outputFile = fopen("./korean_flag.png", "wb");
-    if (outputFile == NULL) {
-        fprintf(stderr, "Error opening the output file.\n");
-        return 1;
-    }
-    gdImagePngEx(img, outputFile, 9);
-    fclose(outputFile);
-    gdImageDestroy(img);
+    // 在中間添加紅藍各一半的圓，將紅色移到上方，藍色移到下方
+    int centerX = 300;
+    int centerY = 200;
+    int radius = 200;
+
+    gdImageFilledArc(im, centerX, centerY, radius, radius, 0, 180, blue, gdPie);
+    gdImageFilledArc(im, centerX, centerY - 1, radius, radius, 180, 360, red, gdPie);
+
+    // 在中間添加向右偏移49的直徑為100的藍色圓
+    int blueCircleRadius = 50; // 半徑為50
+    int offsetX = 49;
+    gdImageFilledEllipse(im, centerX + offsetX, centerY, blueCircleRadius * 2, blueCircleRadius * 2, blue);
+
+    // 在中間添加向左偏移50的直徑為100的紅色圓
+    int redCircleRadius = 50; // 半徑為50
+    gdImageFilledEllipse(im, centerX - 49, centerY, redCircleRadius * 2, redCircleRadius * 2, red);
+
+    // 將中間的圖形順時針旋轉104度
+    double angle = 104.0;
+    gdImagePtr rotated_im = gdImageCreateTrueColor(600, 400);
+    gdImageFilledRectangle(rotated_im, 0, 0, 599, 399, white);
+
+    // 複製原始圖像
+    gdImageCopy(rotated_im, im, 0, 0, 0, 0, 600, 400);
+
+    // 逆時針旋轉的角度
+    double rotationAngle = 25.0; 
+
+    // 繪製斜直的長方形
+    int rectWidth = 15;   // 長方形寬度
+    int rectHeight = 120;  // 長方形高度
+    int rectSpacing = 10;  // 長方形間隔
+
+    // 計算三個長方形的左上角座標
+    int rect1X = 139 - rectWidth - rectSpacing;  // 第一個長方形
+    int rect1Y = 206 - rectHeight / 2;
+    int rect2X = rect1X - rectWidth - rectSpacing;  // 第二個長方形
+    int rect2Y = rect1Y;
+    int rect3X = rect2X - rectWidth - rectSpacing;  // 第三個長方形
+    int rect3Y = rect1Y;
+
+    gdPoint points1[4];
+    points1[0].x = (int)(rect1X - centerX) * cos(rotationAngle * M_PI / 180) - (rect1Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points1[0].y = (int)(rect1X - centerX) * sin(rotationAngle * M_PI / 180) + (rect1Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points1[1].x = (int)((rect1X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - (rect1Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points1[1].y = (int)((rect1X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + (rect1Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points1[2].x = (int)((rect1X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect1Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points1[2].y = (int)((rect1X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect1Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points1[3].x = (int)(rect1X - centerX) * cos(rotationAngle * M_PI / 180) - ((rect1Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points1[3].y = (int)(rect1X - centerX) * sin(rotationAngle * M_PI / 180) + ((rect1Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+    gdPoint points2[4];
+    points2[0].x = (int)(rect2X - centerX) * cos(rotationAngle * M_PI / 180) - (rect2Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points2[0].y = (int)(rect2X - centerX) * sin(rotationAngle * M_PI / 180) + (rect2Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points2[1].x = (int)((rect2X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - (rect2Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points2[1].y = (int)((rect2X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + (rect2Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points2[2].x = (int)((rect2X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect2Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points2[2].y = (int)((rect2X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect2Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points2[3].x = (int)(rect2X - centerX) * cos(rotationAngle * M_PI / 180) - ((rect2Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points2[3].y = (int)(rect2X - centerX) * sin(rotationAngle * M_PI / 180) + ((rect2Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+    gdPoint points3[4];
+    points3[0].x = (int)(rect3X - centerX) * cos(rotationAngle * M_PI / 180) - (rect3Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points3[0].y = (int)(rect3X - centerX) * sin(rotationAngle * M_PI / 180) + (rect3Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points3[1].x = (int)((rect3X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - (rect3Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points3[1].y = (int)((rect3X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + (rect3Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points3[2].x = (int)((rect3X + rectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect3Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points3[2].y = (int)((rect3X + rectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect3Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+    points3[3].x = (int)(rect3X - centerX) * cos(rotationAngle * M_PI / 180) - ((rect3Y + rectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+    points3[3].y = (int)(rect3X - centerX) * sin(rotationAngle * M_PI / 180) + ((rect3Y + rectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+    gdImageFilledPolygon(rotated_im, points1, 4, black);
+    gdImageFilledPolygon(rotated_im, points2, 4, black);
+    gdImageFilledPolygon(rotated_im, points3, 4, black);
+
+
+  {// 添加新的黑色斜形
+  gdPoint rect4Points[4];
+  int rect4X = 70;  // 第四個長方形
+  int rect4Y = 185;
+  rect4Points[0].x = (int)(rect4X - centerX) * cos(rotationAngle * M_PI / 180) + (rect4Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4Points[0].y = (int)(rect4X - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  int rect4Width = rectWidth;  // 假設 rectWidth 已經定義
+  int rect4Height = rectHeight;  // 假設 rectHeight 已經定義
+  rect4Points[1].x = (int)((rect4X + rect4Width) - centerX) * cos(rotationAngle * M_PI / 180) + (rect4Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4Points[1].y = (int)((rect4X + rect4Width) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4Points[2].x = (int)((rect4X + rect4Width) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4Y + rect4Height) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4Points[2].y = (int)((rect4X + rect4Width) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4Y + rect4Height) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4Points[3].x = (int)(rect4X - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4Y + rect4Height) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4Points[3].y = (int)(rect4X - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4Y + rect4Height) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect4Points, 4, black);
+
+  // 修改第五個斜形
+  gdPoint rect5Points[4];
+  int rect5X = rect4X + rect4Width + rectSpacing;  // 第五個長方形
+  int rect5Y = rect4Y;
+  int middleRectWidth = 15;    // 中間長方形寬度
+  int middleRectHeight = 55;   // 中間長方形高度
+  int middleRectSpacing = 10;  // 中間長方形上下間隔
+  rect5Points[0].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) + (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[0].y = (int)(rect5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[1].x = (int)((rect5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) + (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[1].y = (int)((rect5X + middleRectWidth) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[2].x = (int)((rect5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[2].y = (int)((rect5X + middleRectWidth) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[3].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) + ((rect5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[3].y = (int)(rect5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect5Points, 4, black);
+
+  // 添加位於第五個斜形下方的新的黑色斜形
+  gdPoint rectBelow5Points[4];
+  int rectBelow5X = rect5X;
+  int rectBelow5Y = rect5Y + middleRectHeight + middleRectSpacing;
+  rectBelow5Points[0].x = (int)(rectBelow5X - centerX) * cos(rotationAngle * M_PI / 180) + (rectBelow5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[0].y = (int)(rectBelow5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rectBelow5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[1].x = (int)((rectBelow5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) + (rectBelow5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[1].y = (int)((rectBelow5X + middleRectWidth) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rectBelow5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[2].x = (int)((rectBelow5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) + ((rectBelow5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[2].y = (int)((rectBelow5X + middleRectWidth) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rectBelow5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[3].x = (int)(rectBelow5X - centerX) * cos(rotationAngle * M_PI / 180) + ((rectBelow5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[3].y = (int)(rectBelow5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rectBelow5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rectBelow5Points, 4, black);
+
+  // 添加新的黑色斜形
+  gdPoint rect6Points[4];
+  int rect6X = rect5X + middleRectWidth + rectSpacing;  // 第六個長方形
+  int rect6Y = rect4Y;
+  rect6Points[0].x = (int)(rect6X - centerX) * cos(rotationAngle * M_PI / 180) + (rect6Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6Points[0].y = (int)(rect6X - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  int rect6Width = rectWidth;  // 假設 rectWidth 已經定義
+  int rect6Height = rectHeight;  // 假設 rectHeight 已經定義
+  rect6Points[1].x = (int)((rect6X + rect6Width) - centerX) * cos(rotationAngle * M_PI / 180) + (rect6Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6Points[1].y = (int)((rect6X + rect6Width) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6Points[2].x = (int)((rect6X + rect6Width) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6Y + rect6Height) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6Points[2].y = (int)((rect6X + rect6Width) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6Y + rect6Height) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6Points[3].x = (int)(rect6X - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6Y + rect6Height) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6Points[3].y = (int)(rect6X - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6Y + rect6Height) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect6Points, 4, black);}
+
+  {// 添加新的黑色斜形（第四個，上半部分）
+  gdPoint rect4aPoints[4];
+  int rect4aX = 460;  // 第四個長方形（上半部分）
+  int rect4aY = 139;
+  rect4aPoints[0].x = (int)(rect4aX - centerX) * cos(rotationAngle * M_PI / 180) + (rect4aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[0].y = (int)(rect4aX - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[1].x = (int)((rect4aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + (rect4aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[1].y = (int)((rect4aX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[2].x = (int)((rect4aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[2].y = (int)((rect4aX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[3].x = (int)(rect4aX - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[3].y = (int)(rect4aX - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect4aPoints, 4, black);
+
+  // 添加新的黑色斜形（第四個，下半部分）
+  gdPoint rect4bPoints[4];
+  int rect4bX = 460;  // 第四個長方形（下半部分）
+  int rect4bY = 139 + 55 + 10;  // 上半部分的 Y 座標 + 上半部分的高度 + 間隔
+  rect4bPoints[0].x = (int)(rect4bX - centerX) * cos(rotationAngle * M_PI / 180) + (rect4bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[0].y = (int)(rect4bX - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[1].x = (int)((rect4bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + (rect4bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[1].y = (int)((rect4bX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect4bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[2].x = (int)((rect4bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[2].y = (int)((rect4bX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[3].x = (int)(rect4bX - centerX) * cos(rotationAngle * M_PI / 180) + ((rect4bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[3].y = (int)(rect4bX - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect4bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect4bPoints, 4, black);
+
+  // 修改第五個斜形（長度為 120）
+  gdPoint rect5Points[4];
+  int rect5X = rect4aX + 15 + rectSpacing;  // 第五個長方形
+  int rect5Y = rect4aY;
+  rect5Points[0].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) + (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[0].y = (int)(rect5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[1].x = (int)((rect5X + 15) - centerX) * cos(rotationAngle * M_PI / 180) + (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[1].y = (int)((rect5X + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[2].x = (int)((rect5X + 15) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect5Y + 120) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[2].y = (int)((rect5X + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect5Y + 120) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[3].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) + ((rect5Y + 120) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[3].y = (int)(rect5X - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect5Y + 120) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect5Points, 4, black);
+
+  // 添加新的黑色斜形（第六個，上半部分）
+  gdPoint rect6aPoints[4];
+  int rect6aX = rect5X + 15 + rectSpacing;  // 第六個長方形（上半部分）
+  int rect6aY = rect5Y;
+  rect6aPoints[0].x = (int)(rect6aX - centerX) * cos(rotationAngle * M_PI / 180) + (rect6aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[0].y = (int)(rect6aX - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[1].x = (int)((rect6aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + (rect6aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[1].y = (int)((rect6aX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[2].x = (int)((rect6aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[2].y = (int)((rect6aX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[3].x = (int)(rect6aX - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[3].y = (int)(rect6aX - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect6aPoints, 4, black);
+
+  // 添加新的黑色斜形（第六個，下半部分）
+  gdPoint rect6bPoints[4];
+  int rect6bX = rect5X + 15 + rectSpacing;  // 第六個長方形（下半部分）
+  int rect6bY = rect5Y + 55 + 10;  // 上半部分的 Y 座標 + 上半部分的高度 + 間隔
+  rect6bPoints[0].x = (int)(rect6bX - centerX) * cos(rotationAngle * M_PI / 180) + (rect6bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[0].y = (int)(rect6bX - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[1].x = (int)((rect6bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + (rect6bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[1].y = (int)((rect6bX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + (rect6bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[2].x = (int)((rect6bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[2].y = (int)((rect6bX + 15) - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[3].x = (int)(rect6bX - centerX) * cos(rotationAngle * M_PI / 180) + ((rect6bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[3].y = (int)(rect6bX - centerX) * (-sin(rotationAngle * M_PI / 180)) + ((rect6bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect6bPoints, 4, black);}
+
+
+  // 添加新的黑色斜形（第四個，上半部分）
+  gdPoint rect4aPoints[4];
+  int rect4aX = 460;  // 第四個長方形（上半部分）
+  int rect4aY =185;
+  rect4aPoints[0].x = (int)(rect4aX - centerX) * cos(rotationAngle * M_PI / 180) - (rect4aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[0].y = (int)(rect4aX - centerX) * sin(rotationAngle * M_PI / 180) + (rect4aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[1].x = (int)((rect4aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - (rect4aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[1].y = (int)((rect4aX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + (rect4aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[2].x = (int)((rect4aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect4aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[2].y = (int)((rect4aX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect4aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4aPoints[3].x = (int)(rect4aX - centerX) * cos(rotationAngle * M_PI / 180) - ((rect4aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4aPoints[3].y = (int)(rect4aX - centerX) * sin(rotationAngle * M_PI / 180) + ((rect4aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect4aPoints, 4, black);
+
+  // 添加新的黑色斜形（第四個，下半部分）
+  gdPoint rect4bPoints[4];
+  int rect4bX = rect4aX;  // 使用与上半部分相同的X坐标
+  int rect4bY = rect4aY + 55 + 10;  // 上半部分的 Y 座標 + 上半部分的高度 + 間隔
+  rect4bPoints[0].x = (int)(rect4bX - centerX) * cos(rotationAngle * M_PI / 180) - (rect4bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[0].y = (int)(rect4bX - centerX) * sin(rotationAngle * M_PI / 180) + (rect4bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[1].x = (int)((rect4bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - (rect4bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[1].y = (int)((rect4bX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + (rect4bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[2].x = (int)((rect4bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect4bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[2].y = (int)((rect4bX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect4bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect4bPoints[3].x = (int)(rect4bX - centerX) * cos(rotationAngle * M_PI / 180) - ((rect4bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect4bPoints[3].y = (int)(rect4bX - centerX) * sin(rotationAngle * M_PI / 180) + ((rect4bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect4bPoints, 4, black);
+
+  // 修改第五個斜形（在上方添加）
+  gdPoint rect5Points[4];
+  int rect5X = rect4aX + 15 + rectSpacing;  // 第五個長方形
+  int rect5Y = rect4aY;
+  int middleRectWidth = 15;    // 中間長方形寬度
+  int middleRectHeight = 55;   // 中間長方形高度
+  int middleRectSpacing = 10;  // 中間長方形上下間隔
+  rect5Points[0].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) - (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[0].y = (int)(rect5X - centerX) * sin(rotationAngle * M_PI / 180) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[1].x = (int)((rect5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - (rect5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[1].y = (int)((rect5X + middleRectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + (rect5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[2].x = (int)((rect5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[2].y = (int)((rect5X + middleRectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect5Points[3].x = (int)(rect5X - centerX) * cos(rotationAngle * M_PI / 180) - ((rect5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect5Points[3].y = (int)(rect5X - centerX) * sin(rotationAngle * M_PI / 180) + ((rect5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect5Points, 4, black);
+
+
+  // 添加位於第五個斜形下方的新的黑色斜形
+  gdPoint rectBelow5Points[4];
+  int rectBelow5X = rect5X;
+  int rectBelow5Y = rect5Y + middleRectHeight + middleRectSpacing;
+  rectBelow5Points[0].x = (int)(rectBelow5X - centerX) * cos(rotationAngle * M_PI / 180) - (rectBelow5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[0].y = (int)(rectBelow5X - centerX) * sin(rotationAngle * M_PI / 180) + (rectBelow5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[1].x = (int)((rectBelow5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - (rectBelow5Y - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[1].y = (int)((rectBelow5X + middleRectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + (rectBelow5Y - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[2].x = (int)((rectBelow5X + middleRectWidth) - centerX) * cos(rotationAngle * M_PI / 180) - ((rectBelow5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[2].y = (int)((rectBelow5X + middleRectWidth) - centerX) * sin(rotationAngle * M_PI / 180) + ((rectBelow5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rectBelow5Points[3].x = (int)(rectBelow5X - centerX) * cos(rotationAngle * M_PI / 180) - ((rectBelow5Y + middleRectHeight) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rectBelow5Points[3].y = (int)(rectBelow5X - centerX) * sin(rotationAngle * M_PI / 180) + ((rectBelow5Y + middleRectHeight) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rectBelow5Points, 4, black);
+
+  // 第六個斜形（上半部分）
+  gdPoint rect6aPoints[4];
+  int rect6aX = rect5X + 15 + 10;  // 第六個長方形（上半部分）
+  int rect6aY = rect5Y;
+  rect6aPoints[0].x = (int)(rect6aX - centerX) * cos(rotationAngle * M_PI / 180) - (rect6aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[0].y = (int)(rect6aX - centerX) * sin(rotationAngle * M_PI / 180) + (rect6aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[1].x = (int)((rect6aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - (rect6aY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[1].y = (int)((rect6aX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + (rect6aY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[2].x = (int)((rect6aX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect6aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[2].y = (int)((rect6aX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect6aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6aPoints[3].x = (int)(rect6aX - centerX) * cos(rotationAngle * M_PI / 180) - ((rect6aY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6aPoints[3].y = (int)(rect6aX - centerX) * sin(rotationAngle * M_PI / 180) + ((rect6aY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect6aPoints, 4, black);
+
+  // 第六個斜形（下半部分）
+  gdPoint rect6bPoints[4];
+  int rect6bX = rect6aX;  // 第六個長方形（下半部分）
+  int rect6bY = rect6aY + 55 + 10;  // 上半部分的 Y 座標 + 上半部分的高度 + 間隔
+  rect6bPoints[0].x = (int)(rect6bX - centerX) * cos(rotationAngle * M_PI / 180) - (rect6bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[0].y = (int)(rect6bX - centerX) * sin(rotationAngle * M_PI / 180) + (rect6bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[1].x = (int)((rect6bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - (rect6bY - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[1].y = (int)((rect6bX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + (rect6bY - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[2].x = (int)((rect6bX + 15) - centerX) * cos(rotationAngle * M_PI / 180) - ((rect6bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[2].y = (int)((rect6bX + 15) - centerX) * sin(rotationAngle * M_PI / 180) + ((rect6bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+  rect6bPoints[3].x = (int)(rect6bX - centerX) * cos(rotationAngle * M_PI / 180) - ((rect6bY + 55) - centerY) * sin(rotationAngle * M_PI / 180) + centerX;
+  rect6bPoints[3].y = (int)(rect6bX - centerX) * sin(rotationAngle * M_PI / 180) + ((rect6bY + 55) - centerY) * cos(rotationAngle * M_PI / 180) + centerY;
+
+  gdImageFilledPolygon(rotated_im, rect6bPoints, 4, black);
+
+    output = fopen("output.png", "wb");
+    gdImagePng(rotated_im, output);
+    fclose(output);
+
+    gdImageDestroy(im);
+    gdImageDestroy(rotated_im);
+
     return 0;
-}
-
-void draw_korean_flag(gdImagePtr img) {
-  int width = gdImageSX(img)
-  int height = gdImageSX(img)
-  int white,black,red,blue;
-  int red=gdImageColorAllocate(img, 255,0,0);
-  int white=gdImageColorAllocate(img, 255,255,255);
-  int black=gdImageColorAllocate(img, 0,0,0);
-  int blue=gdImageColorAllocate(img, 0,0,255);
-}
-
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color) {
-  int x,y,size,color;
-}
-</pre>
+}</pre>
 <p>以chatGPT去試著做，然而就是很烙賽。</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
@@ -454,8 +752,7 @@ void draw_uk_flag(gdImagePtr img) {
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
 }</pre>
 <p><img alt="" height="250" src="./../images/uk_flag.png" width="500"/></p>
-<p>英國</p>
-<br />w6 << <a href='w6.html'>Previous</a> <a href='w8~w9.html'>Next</a> >> w8~w9</div>
+<p>英國</p><br />w6 << <a href='w6.html'>Previous</a> <a href='w8~w9.html'>Next</a> >> w8~w9</div>
         
     <!-- footer -->
       <div class="container">
