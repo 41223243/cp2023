@@ -142,408 +142,329 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w16 << <a href='w16.html'>Previous</a> <a href='CEX_t.html'>Next</a> >> CEX_t<br /><h1>C_EX</h1>
+    <div id="tipue_search_content">ANSIC << <a href='ANSIC.html'>Previous</a> <a href='期末總結.html'>Next</a> >> 期末總結<br /><h1>ANSIC_T</h1>
 <p>1</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-int main()
-{
-float a = 0.5;
-double b = 1.2;
-int c = 3;
-b = b + a + c;
+int main() {
+    int x;    // 用於存儲總里程的變數，以公里為單位
+    float y;  // 用於存儲總耗油量的變數，以升為單位
 
-/* 输出 a, b, c 到屏幕 */
-printf("a = %3.1f, b = %3.1f, c = %d\n", a, b, c);
+    // 提示用戶輸入總里程並存入 'x'
+    printf("Input total distance in km: ");
+    // 檢查 scanf 的返回值，確保成功讀取一個整數
+    if (scanf("%d", &amp;x) != 1) {
+        fprintf(stderr, "Error: Invalid input for total distance.\n");
+        return 1;
+    }
 
-return 0;
-}</pre>
-<p><img alt="" height="87" src="./../images/ex1.png" width="271"/></p>
-<p>2</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
-   字元範例 1
-   ==================== */
-#include &lt;stdio.h&gt;
+    // 提示用戶輸入總耗油量並存入 'y'
+    printf("Input total fuel spent in liters: ");
+    // 檢查 scanf 的返回值，確保成功讀取一個浮點數
+    if (scanf("%f", &amp;y) != 1) {
+        fprintf(stderr, "Error: Invalid input for total fuel spent.\n");
+        return 1;
+    }
 
-int main()
-{
-    char x, y;
-
-    x = 'a';
-    y = (char)97;
-
-    /* 輸出 x, y, x, 最後一個是以 ASCII 值顯示 y */
-    printf("x = %c, y = %c, ASCII of y = %d", x, y, y);
+    // 計算並打印平均油耗
+    printf("Average consumption (km/lt) %.3f ", x / y);
+    printf("\n");
 
     return 0;
 }</pre>
-<p><img alt="" height="61" src="./../images/ex2.png" width="422"/></p>
+<p><img alt="" height="137" src="./../images/ant1.png" width="321"/></p>
+<p>2</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    float x, y, z, P; // 宣告變數，用於存儲三角形的邊長和周長
+
+    // 提示用戶輸入三個邊長並存入 'x', 'y', 和 'z'
+    printf("\nInput the first number: ");
+    if (scanf("%f", &amp;x) != 1) {
+        fprintf(stderr, "Error: Invalid input for the first number.\n");
+        return 1;
+    }
+
+    printf("\nInput the second number: ");
+    if (scanf("%f", &amp;y) != 1) {
+        fprintf(stderr, "Error: Invalid input for the second number.\n");
+        return 1;
+    }
+
+    printf("\nInput the third number: ");
+    if (scanf("%f", &amp;z) != 1) {
+        fprintf(stderr, "Error: Invalid input for the third number.\n");
+        return 1;
+    }
+
+    if (x &lt; (y + z) &amp;&amp; y &lt; (x + z) &amp;&amp; z &lt; (y + x)) // 檢查是否可以構成三角形
+    {
+        P = x + y + z; // 計算周長
+        printf("\nPerimeter  = %.1f\n", P); // 輸出周長
+    } else {
+        printf("Not possible to create a triangle..!"); // 如果無法構成三角形，輸出相應的信息
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="172" src="./../images/ant2.png" width="293"/></p>
 <p>3</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-int main()
-{
-    int a = 64;
-    int b = 0x40; // 以十六进制表示
-    long c = 64L;
+int main() {
+    int j, numbers[5], total = 0; // 宣告數組用於存儲 5 個數字和變數用於總和
 
-    // 打印变量的值
-    printf("%d, %d, %ld", a, b, c);
+    // 提示用戶輸入五個數字並存入數組
+    for (j = 0; j &lt; 5; j++) {
+        printf("\nInput the %s number: ", j == 0 ? "first" : (j == 1 ? "second" : (j == 2 ? "third" : (j == 3 ? "fourth" : "fifth"))));
+        if (scanf("%d", &amp;numbers[j]) != 1) {
+            fprintf(stderr, "Error: Invalid input for the %s number.\n", j == 0 ? "first" : (j == 1 ? "second" : (j == 2 ? "third" : (j == 3 ? "fourth" : "fifth"))));
+            return 1;
+        }
+    }
 
+    for (j = 0; j &lt; 5; j++) {
+        if ((numbers[j] % 2) != 0) // 檢查數字是否為奇數
+        {
+            total += numbers[j]; // 將奇數添加到總和中
+        }
+    }
+
+    printf("\nSum of all odd values: %d", total); // 輸出所有奇數的總和
     return 0;
 }</pre>
-<p><img alt="" height="67" src="./../images/ex3.png" width="292"/></p>
+<p><img alt="" height="219" src="./../images/ant3.png" width="369"/></p>
 <p>4</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;limits.h&gt;
 
-int main()
-{
-    int a = 10, b = 5;
+int divide_two(int dividend_num, int divisor_num) {
+    int sign = (float)dividend_num / divisor_num &gt; 0 ? 1 : -1;
+    unsigned int dvd = dividend_num &gt; 0 ? dividend_num : -dividend_num;
+    unsigned int dvs = divisor_num &gt; 0 ? divisor_num : -divisor_num;
+    unsigned int bit_num[33];
+    unsigned int i = 0;
+    long long d = dvs;
 
-    // 第一组比较
-    printf("a == b is %d\n", a == b);
-    printf("a &gt; b is %d\n", a &gt; b);
-    printf("a &lt; b is %d\n", a &lt; b);
-    printf("a &gt;= b is %d\n", a &gt;= b);
-    printf("a &lt;= b is %d\n", a &lt;= b);
-    printf("a != b is %d\n", a != b);
+    bit_num[i] = d;
+    while (d &lt;= dvd) {
+        bit_num[++i] = d = d &lt;&lt; 1;
+    }
+    i--;
 
-    printf("\n");
+    unsigned int result = 0;
+    while (dvd &gt;= dvs) {
+        if (dvd &gt;= bit_num[i]) {
+            dvd -= bit_num[i];
+            result += (1 &lt;&lt; i);
+        } else {
+            i--;
+        }
+    }
 
-    // 修改 b 的值
-    b = 10;
+    if (result &gt; INT_MAX &amp;&amp; sign &gt; 0) {
+        return INT_MAX;
+    }
+    return (int)result * sign;
+}
 
-    // 第二组比较
-    printf("a == b is %d\n", a == b);
-    printf("a &gt; b is %d\n", a &gt; b);
-    printf("a &lt; b is %d\n", a &lt; b);
-    printf("a &gt;= b is %d\n", a &gt;= b);
-    printf("a &lt;= b is %d\n", a &lt;= b);
-    printf("a != b is %d\n", a != b);
-
+int main(void) {
+    int dividend_num = 15;
+    int divisor_num = 3;
+    printf("Quotient after dividing %d and %d: %d", dividend_num, divisor_num, divide_two(dividend_num, divisor_num));
     return 0;
 }</pre>
-<p><img alt="" height="255" src="./../images/ex4.png" width="224"/></p>
+<p><img alt="" height="54" src="./../images/ant4.png" width="294"/></p>
 <p>5</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-void main()
-{
-int a;
+// inline function to check if a given integer is even
+inline int is_even(int n) {
+    return n % 2 == 0;
+}
 
-// 第一次输出
-a = 3;
-printf("%d\n", !a); // 逻辑非运算，a为真，所以输出0
+int main() {
+    int num;
 
-// 第二次输出
-a = 0;
-printf("%d\n", !a); // 逻辑非运算，a为假，所以输出1
+    // 檢查 scanf 的返回值，確保成功讀取一個整數
+    if (scanf("%d", &amp;num) != 1) {
+        fprintf(stderr, "Error: Invalid input. Please enter a valid integer.\n");
+        return 1;
+    }
+
+    if (is_even(num)) {
+        printf("%d is even.\n", num);
+    } else {
+        printf("%d is odd.\n", num);
+    }
+
+    return 0;
 }</pre>
-<p><img alt="" height="75" src="./../images/ex5.png" width="238"/></p>
+<p><img alt="" height="67" src="./../images/ant5.png" width="245"/></p>
 <p>6</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-void main()
-{
-    char a;
 
-    // 使用 %zu 格式说明符输出 size_t 类型
-    printf("The size of int is %zu\n", sizeof(int));
+inline float celsius_To_Fahrenheit(float celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+inline float fahrenheit_To_Celsius(float fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
 
-    // 使用 %zu 格式说明符输出 size_t 类型
-    printf("The size of char a is %zu\n", sizeof(a));
+int main() {
+  float celsius = 40;
+  float fahrenheit = 89.60;
+  printf("%.2f Celsius is equal to %.2f Fahrenheit\n", celsius, celsius_To_Fahrenheit(celsius));
+  printf("\n%.2f Fahrenheit is equal to %.2f Celsius\n", fahrenheit,
+    fahrenheit_To_Celsius(fahrenheit));
+  return 0;
 }</pre>
-<p><img alt="" height="66" src="./../images/ex6.png" width="236"/></p>
+<p><img alt="" height="85" src="./../images/ant6.png" width="376"/></p>
 <p>7</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-
-/* ====================
-计算长方形面积, 需传入长与宽.
-==================== */
-int rect(int x, int y)
-{
-    int result;
-    result = x * y;
-    return result; /* 返回 result */
-}
-
-/* ====================
-主函数
-==================== */
-int main()
-{
-    int x = 8, y = 4;
-    int a;
-    a = rect(x, y);
-    printf("8*4 的面积是 %d", a);
-    return 0;
+ 
+int main() {
+    int a, b;
+ 
+    // Prompt user for input
+    printf("Input two pairs values (integer values):\n");
+ 
+    // Read two integer values from user and store them in 'a' and 'b'
+    if (scanf("%d %d", &amp;a, &amp;b) != 2) {
+        fprintf(stderr, "Error: Invalid input. Please enter two integer values.\n");
+        return 1;  // Return an error code for invalid input
+    }
+ 
+    // Check if 'a' is not equal to 'b'
+    if (a != b) {
+        // Check if 'b' is greater than 'a'
+        if (b &gt; a) {
+            printf("Ascending order\n");  // Print message for ascending order
+        } else {
+            printf("Descending order\n");  // Print message for descending order
+        }
+    }
+ 
+    return 0;  // End of program
 }</pre>
-<p><img alt="" height="56" src="./../images/ex7.png" width="297"/></p>
+<p><img alt="" height="111" src="./../images/ant7.png" width="341"/></p>
 <p>8</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-float circle( int r ); /* 宣告 circle 的 prototype */
-void main()
-{
-float answer;
-answer = circle(8);
-printf( " 圓周長度是 %f", answer );
-}
-/* ====================
- circle 函數, 計算 circle 的圓周長
-==================== */
-float circle( int r )
-{
-float result;
-result = 3.14159 * (double)1001 * r;
-return ( result );
-}
-</pre>
-<p><img alt="" height="43" src="./../images/ex8.png" width="397"/></p>
+
+int main(void) {
+    unsigned char char1, char2, char3, char4, char5, char6, char7, char8;
+
+    // Print table header
+    printf("|---------------------------------------------------------------------------------------------------------|\n");
+    printf("|extended ASCII table - excluding control characters                                                      |\n");
+    printf("|   Ch Dec  Hex  |  Ch Dec  Hex   | Ch Dec  Hex | Ch Dec  Hex  | Ch Dec  Hex  | Ch Dec  Hex | Ch Dec  Hex |\n");
+    printf("|----------------|----------------|-------------|--------------|--------------|-------------|-------------|\n");
+
+    // Loop through characters
+    for (int i = 0; i &lt; 32; i++) {
+        // Calculate characters for different ranges
+        char1 = i;
+        char2 = i + 32;
+        char3 = i + 64;
+        char4 = i + 96;
+        char5 = i + 128;  // extended ASCII characters
+        char6 = i + 160;
+        char7 = i + 192;
+        char8 = i + 224;
+
+        // Print characters and their decimal and hexadecimal representations
+        printf("|  %c %3d %#x ", char2, char2, char2);
+        printf("|  %c %3d %#x ", char3, char3, char3);
+
+        // Special case for DEL character
+        if (char4 == 127) {
+            printf("|%s %3d %#x |", "DEL", char4, char4);
+        } else {
+            printf("|  %c %3d %#x |", char4, char4, char4);
+        }
+
+        // Print extended ASCII characters for the current system.
+        printf("  %c %3d %#x |  %c %3d %#x |  %c %3d %#x |  %c %3d %#x |\n",
+               char5, char5, char5,
+               char6, char6, char6,
+               char7, char7, char7,
+               char8, char8, char8);
+    }
+
+    return 0;  // Indicate successful execution of the program
+}</pre>
+<p><img alt="" height="399" src="./../images/ant8.png" width="857"/></p>
 <p>9</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-int main()
-{
-    char ch;
+int main() {
+    int x; // Declare variable x
 
-    printf("输入一个字符：");
+    // Print header for the table
+    printf("x+1\tx+3\tx+5\tx+7\n\n");
+    printf("---------------------------\n");
 
-    // 检查 scanf 的返回值，确保成功读取一个字符
-    if (scanf(" %c", &amp;ch) != 1) {
-        printf("读取字符失败\n");
-        return 1; // 或者采取其他错误处理措施
-    }
+    // Loop to generate and print table values
+    for (x = 1; x &lt;= 15; x += 3)
+        printf("%d\t%d\t%d\t%d\n", x, (x + 2), (x + 4), (x + 6));
 
-    if (ch == 'a') {
-        printf("您按下了 'a'\n");
-    }
-
-    return 0;
-}</pre>
-<p><img alt="" height="67" src="./../images/ex9.png" width="268"/></p>
+    return 0; // Indicate successful program execution
+}
+</pre>
+<p><img alt="" height="147" src="./../images/ant9.png" width="241"/></p>
 <p>10</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 
-void main()
-{
-    int i;
-
-    // 提示用户输入一个整数
-    printf("100：");
-
-    // 读取用户输入的整数
-    scanf("%d", &amp;i);
-
-    // 判断输入的整数，并输出相应的消息
-    if (i &lt; 100)
-    {
-        printf("i &lt; 100\n");
-    }
-    else
-    {
-        if ((i &gt;= 100) &amp;&amp; (i &lt; 200))
-        {
-            printf("i &gt;= 100 且 i &lt; 200\n");
-        }
-        else
-        {
-            printf("i &gt;= 200\n");
-        }
-    }
-}</pre>
-<p><img alt="" height="178" src="./../images/ex10.png" width="697"/></p>
-<p>11</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
- function pointer 2
-========================= */
-#include &lt;stdio.h&gt;
-/* ====================
-say “Hello”.
-==================== */
-void Hello(void)
-{
-printf(“ Hello\n”);
-}
-/* ====================
-say “World”.
-==================== */
-void World(void)
-{
-printf(“ World\n”);
-}
-/* ====================
-main function.
-==================== */
-int main()
-{
-void (*func[3])(void); /* 宣告一個 function pointer array */
-int i = 0 ;
-func[0] = Hello; /* 建立 Jumping table */
-func[1] = World;
-while(1)
-{
-printf(“Input a number between 0 and 1 : ”);
-scanf( “%d”,&amp;i );
-/* 若 I 大於等於 2 或是小於 0 則離開 loop */
-if( (i &gt;= 2)||(i &lt; 0) )
-break;
-else
-func[ i ]( ); /* 執行! */
-}
-return 0;
-}</pre>
-<p><img alt="" height="404" src="./../images/ex11(1).png" width="690"/></p>
-<p>很顯然有問題</p>
-<p>12</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-
-/* ====================
-say “Hello”.
-==================== */
-void Hello(void)
-{
-    printf("Hello\n");
-}
-
-/* ====================
-say “World”.
-==================== */
-void World(void)
-{
-    printf("World\n");
-}
-
-/* ====================
-main function.
-==================== */
-int main()
-{
-    void (*func[3])(void); /* 声明一个函数指针数组 */
-    int i = 0;
-
-    func[0] = Hello; /* 建立 Jumping table */
-    func[1] = World;
-
-    while (1)
-    {
-        printf("Input a number between 0 and 1: ");
-        scanf("%d", &amp;i);
-
-        /* 如果 i 大于等于 2 或小于 0 则退出循环 */
-        if (i &gt;= 2 || i &lt; 0)
-            break;
-        else
-            func[i](); /* 执行函数 */
-    }
-
-    return 0;
-}</pre>
-<p><img alt="" height="94" src="./../images/ex12.png" width="701"/></p>
-<p>13</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-
-/* ====================
-say “Hello”.
-==================== */
-void Hello(void)
-{
-    printf("Hello\n");
-}
-
-/* ====================
-say “World”.
-==================== */
-void World(void)
-{
-    printf("World\n");
-}
-
-/* ====================
-main function.
-==================== */
-int main()
-{
-    void (*func[3])(void); /* 声明一个函数指针数组 */
-    int i = 0;
-
-    func[0] = Hello; /* 建立 Jumping table */
-    func[1] = World;
-
-    while (1)
-    {
-        printf("Input a number between 0 and 1: ");
-
-        // 检查 scanf 的返回值，确保成功读取一个整数
-        if (scanf("%d", &amp;i) != 1)
-        {
-            printf("无效输入，请输入一个整数。\n");
-            break;
-        }
-
-        /* 如果 i 大于等于 2 或小于 0 则退出循环 */
-        if (i &gt;= 2 || i &lt; 0)
-            break;
-        else
-            func[i](); /* 执行函数 */
-    }
-
-    return 0;
-}</pre>
-<p><img alt="" height="82" src="./../images/ex13.png" width="275"/></p>
-<p>22</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
- pointer to pointer – 1.
-==================== */
-#include &lt;stdio.h&gt;
-
 int main() {
-    char *Hello = "Hello";
-    char *World = "World";
-    char *GoodBye = "Good Bye";
-    char *StrArray[3];
-    char **Str;
-    int i;
+    // 声明变量
+    float principal_amt, rate_of_interest, days, interest;
+    const int yearInDays = 365; // 用于转换利率的常量
 
-    Str = StrArray;
-    StrArray[0] = Hello;
-    StrArray[1] = World;
-    StrArray[2] = GoodBye;
-
-    // Print strings using array indexing
-    for (i = 0; i &lt; 3; i++) {
-        printf("%s ", StrArray[i]);
+    // 提示用户输入贷款金额
+    printf("输入贷款金额 (输入 0 退出): ");
+    if (scanf("%f", &amp;principal_amt) != 1) {
+        fprintf(stderr, "Error: Invalid input for loan amount.\n");
+        return 1;
     }
 
-    // Print strings using pointer arithmetic
-    Str = StrArray;  // Reset the pointer to the beginning
-    for (i = 0; i &lt; 3; i++) {
-        printf("%s ", *Str);
-        Str++;
+    // 主循环用于处理贷款
+    while ((int)principal_amt != 0) 
+    {
+        // 提示用户输入利率
+        printf("输入利率: ");
+        if (scanf("%f", &amp;rate_of_interest) != 1) {
+            fprintf(stderr, "Error: Invalid input for interest rate.\n");
+            return 1;
+        }
+
+        // 提示用户输入贷款期限（天）
+        printf("输入贷款期限（天）: ");
+        if (scanf("%f", &amp;days) != 1) {
+            fprintf(stderr, "Error: Invalid input for loan term.\n");
+            return 1;
+        }
+
+        // 计算利息
+        interest = (principal_amt * rate_of_interest * days) / yearInDays;
+
+        // 显示利息金额
+        printf("利息金额为 $%.2f\n", interest);
+
+        // 提示用户输入下一个贷款金额
+        printf("\n\n输入贷款金额 (输入 0 退出): ");
+        if (scanf("%f", &amp;principal_amt) != 1) {
+            fprintf(stderr, "Error: Invalid input for loan amount.\n");
+            return 1;
+        }
     }
 
     return 0;
 }</pre>
-<p><img alt="" height="74" src="./../images/ex22.png" width="521"/></p>
-<p>23</p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-
-int main() {
-float this_is_a_number1, this_is_a_number2;
-int scanf_result; // Dummy variable to capture scanf's return value
-
-/* 读取输入的浮点数 */
-scanf_result = scanf("%f", &amp;this_is_a_number1);
-
-/* 读取输入的浮点数 */
-scanf_result = scanf("%f", &amp;this_is_a_number2);
-
-/* Your code here */
-
-return 0;
-}
-</pre>
-<p><img alt="" height="84" src="./../images/ex23.png" width="286"/></p>
-<br />w16 << <a href='w16.html'>Previous</a> <a href='CEX_t.html'>Next</a> >> CEX_t</div>
+<p><img alt="" height="153" src="./../images/ant10.png" width="305"/></p>
+<br />ANSIC << <a href='ANSIC.html'>Previous</a> <a href='期末總結.html'>Next</a> >> 期末總結</div>
         
     <!-- footer -->
       <div class="container">
