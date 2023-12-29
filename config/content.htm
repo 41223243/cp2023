@@ -1043,7 +1043,8 @@ void draw_uk_flag(gdImagePtr img) {
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
 }</pre>
 <p><img alt="" height="250" src="/images/uk_flag.png" width="500"/></p>
-<p>英國</p><h1>w8~w9</h1>
+<p>英國</p>
+<h1>w8~w9</h1>
 <p>這一周我們改以近端來編輯倉儲的內容，我完全不知道該如何行使，即便我知曉部分操作，但後面的一切實在是讓我完全不能理解，太過樊素、太過快速，再加上那個東西只能在學校使用(網路設定的原因)，根本沒有足夠的時間讓我慢慢摸索，再加上先前繪製的考試實在不盡人意，老實說蠻讓人難受。</p>
 <h1>w10~w11</h1>
 <p>這兩周的一切教學更像是在加深我們對於這門課程的精熟度，不過我實在是很難受，我們需要比對使用replit、s1511、localhost，哪一種方式更讓方便，我只能說，我似乎只是適合使用replit，畢竟它本身就足夠的方便，唯一不足的便是需要網路，且聽說最近即將迎來改，這也導致我們維護倉儲的難度再次提升，這讓本就不熟悉的我更難以忍受。</p>
@@ -1557,3 +1558,404 @@ int main() {
 }
 </pre>
 <p><img alt="" height="250" src="/images/trajectory_plot.png" width="333"/></p>
+<h1>C_EX</h1>
+<p>1</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()
+{
+float a = 0.5;
+double b = 1.2;
+int c = 3;
+b = b + a + c;
+
+/* 输出 a, b, c 到屏幕 */
+printf("a = %3.1f, b = %3.1f, c = %d\n", a, b, c);
+
+return 0;
+}</pre>
+<p><img alt="" height="87" src="/images/ex1.png" width="271"/></p>
+<p>2</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+   字元範例 1
+   ==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char x, y;
+
+    x = 'a';
+    y = (char)97;
+
+    /* 輸出 x, y, x, 最後一個是以 ASCII 值顯示 y */
+    printf("x = %c, y = %c, ASCII of y = %d", x, y, y);
+
+    return 0;
+}</pre>
+<p><img alt="" height="61" src="/images/ex2.png" width="422"/></p>
+<p>3</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 64;
+    int b = 0x40; // 以十六进制表示
+    long c = 64L;
+
+    // 打印变量的值
+    printf("%d, %d, %ld", a, b, c);
+
+    return 0;
+}</pre>
+<p><img alt="" height="67" src="/images/ex3.png" width="292"/></p>
+<p>4</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10, b = 5;
+
+    // 第一组比较
+    printf("a == b is %d\n", a == b);
+    printf("a &gt; b is %d\n", a &gt; b);
+    printf("a &lt; b is %d\n", a &lt; b);
+    printf("a &gt;= b is %d\n", a &gt;= b);
+    printf("a &lt;= b is %d\n", a &lt;= b);
+    printf("a != b is %d\n", a != b);
+
+    printf("\n");
+
+    // 修改 b 的值
+    b = 10;
+
+    // 第二组比较
+    printf("a == b is %d\n", a == b);
+    printf("a &gt; b is %d\n", a &gt; b);
+    printf("a &lt; b is %d\n", a &lt; b);
+    printf("a &gt;= b is %d\n", a &gt;= b);
+    printf("a &lt;= b is %d\n", a &lt;= b);
+    printf("a != b is %d\n", a != b);
+
+    return 0;
+}</pre>
+<p><img alt="" height="255" src="/images/ex4.png" width="224"/></p>
+<p>5</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+void main()
+{
+int a;
+
+// 第一次输出
+a = 3;
+printf("%d\n", !a); // 逻辑非运算，a为真，所以输出0
+
+// 第二次输出
+a = 0;
+printf("%d\n", !a); // 逻辑非运算，a为假，所以输出1
+}</pre>
+<p><img alt="" height="75" src="/images/ex5.png" width="238"/></p>
+<p>6</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+void main()
+{
+    char a;
+
+    // 使用 %zu 格式说明符输出 size_t 类型
+    printf("The size of int is %zu\n", sizeof(int));
+
+    // 使用 %zu 格式说明符输出 size_t 类型
+    printf("The size of char a is %zu\n", sizeof(a));
+}</pre>
+<p><img alt="" height="66" src="/images/ex6.png" width="236"/></p>
+<p>7</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+/* ====================
+计算长方形面积, 需传入长与宽.
+==================== */
+int rect(int x, int y)
+{
+    int result;
+    result = x * y;
+    return result; /* 返回 result */
+}
+
+/* ====================
+主函数
+==================== */
+int main()
+{
+    int x = 8, y = 4;
+    int a;
+    a = rect(x, y);
+    printf("8*4 的面积是 %d", a);
+    return 0;
+}</pre>
+<p><img alt="" height="56" src="/images/ex7.png" width="297"/></p>
+<p>8</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+float circle( int r ); /* 宣告 circle 的 prototype */
+void main()
+{
+float answer;
+answer = circle(8);
+printf( " 圓周長度是 %f", answer );
+}
+/* ====================
+ circle 函數, 計算 circle 的圓周長
+==================== */
+float circle( int r )
+{
+float result;
+result = 3.14159 * (double)1001 * r;
+return ( result );
+}
+</pre>
+<p><img alt="" height="43" src="/images/ex8.png" width="397"/></p>
+<p>9</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()
+{
+    char ch;
+
+    printf("输入一个字符：");
+
+    // 检查 scanf 的返回值，确保成功读取一个字符
+    if (scanf(" %c", &amp;ch) != 1) {
+        printf("读取字符失败\n");
+        return 1; // 或者采取其他错误处理措施
+    }
+
+    if (ch == 'a') {
+        printf("您按下了 'a'\n");
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="67" src="/images/ex9.png" width="268"/></p>
+<p>10</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+void main()
+{
+    int i;
+
+    // 提示用户输入一个整数
+    printf("100：");
+
+    // 读取用户输入的整数
+    scanf("%d", &amp;i);
+
+    // 判断输入的整数，并输出相应的消息
+    if (i &lt; 100)
+    {
+        printf("i &lt; 100\n");
+    }
+    else
+    {
+        if ((i &gt;= 100) &amp;&amp; (i &lt; 200))
+        {
+            printf("i &gt;= 100 且 i &lt; 200\n");
+        }
+        else
+        {
+            printf("i &gt;= 200\n");
+        }
+    }
+}</pre>
+<p><img alt="" height="178" src="/images/ex10.png" width="697"/></p>
+<p>11</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
+ function pointer 2
+========================= */
+#include &lt;stdio.h&gt;
+/* ====================
+say “Hello”.
+==================== */
+void Hello(void)
+{
+printf(“ Hello\n”);
+}
+/* ====================
+say “World”.
+==================== */
+void World(void)
+{
+printf(“ World\n”);
+}
+/* ====================
+main function.
+==================== */
+int main()
+{
+void (*func[3])(void); /* 宣告一個 function pointer array */
+int i = 0 ;
+func[0] = Hello; /* 建立 Jumping table */
+func[1] = World;
+while(1)
+{
+printf(“Input a number between 0 and 1 : ”);
+scanf( “%d”,&amp;i );
+/* 若 I 大於等於 2 或是小於 0 則離開 loop */
+if( (i &gt;= 2)||(i &lt; 0) )
+break;
+else
+func[ i ]( ); /* 執行! */
+}
+return 0;
+}</pre>
+<p><img alt="" height="404" src="/images/ex11(1).png" width="690"/></p>
+<p>很顯然有問題</p>
+<p>12</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+/* ====================
+say “Hello”.
+==================== */
+void Hello(void)
+{
+    printf("Hello\n");
+}
+
+/* ====================
+say “World”.
+==================== */
+void World(void)
+{
+    printf("World\n");
+}
+
+/* ====================
+main function.
+==================== */
+int main()
+{
+    void (*func[3])(void); /* 声明一个函数指针数组 */
+    int i = 0;
+
+    func[0] = Hello; /* 建立 Jumping table */
+    func[1] = World;
+
+    while (1)
+    {
+        printf("Input a number between 0 and 1: ");
+        scanf("%d", &amp;i);
+
+        /* 如果 i 大于等于 2 或小于 0 则退出循环 */
+        if (i &gt;= 2 || i &lt; 0)
+            break;
+        else
+            func[i](); /* 执行函数 */
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="94" src="/images/ex12.png" width="701"/></p>
+<p>13</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+/* ====================
+say “Hello”.
+==================== */
+void Hello(void)
+{
+    printf("Hello\n");
+}
+
+/* ====================
+say “World”.
+==================== */
+void World(void)
+{
+    printf("World\n");
+}
+
+/* ====================
+main function.
+==================== */
+int main()
+{
+    void (*func[3])(void); /* 声明一个函数指针数组 */
+    int i = 0;
+
+    func[0] = Hello; /* 建立 Jumping table */
+    func[1] = World;
+
+    while (1)
+    {
+        printf("Input a number between 0 and 1: ");
+
+        // 检查 scanf 的返回值，确保成功读取一个整数
+        if (scanf("%d", &amp;i) != 1)
+        {
+            printf("无效输入，请输入一个整数。\n");
+            break;
+        }
+
+        /* 如果 i 大于等于 2 或小于 0 则退出循环 */
+        if (i &gt;= 2 || i &lt; 0)
+            break;
+        else
+            func[i](); /* 执行函数 */
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="82" src="/images/ex13.png" width="275"/></p>
+<p>22</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ pointer to pointer – 1.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main() {
+    char *Hello = "Hello";
+    char *World = "World";
+    char *GoodBye = "Good Bye";
+    char *StrArray[3];
+    char **Str;
+    int i;
+
+    Str = StrArray;
+    StrArray[0] = Hello;
+    StrArray[1] = World;
+    StrArray[2] = GoodBye;
+
+    // Print strings using array indexing
+    for (i = 0; i &lt; 3; i++) {
+        printf("%s ", StrArray[i]);
+    }
+
+    // Print strings using pointer arithmetic
+    Str = StrArray;  // Reset the pointer to the beginning
+    for (i = 0; i &lt; 3; i++) {
+        printf("%s ", *Str);
+        Str++;
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="74" src="/images/ex22.png" width="521"/></p>
+<p>23</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+float this_is_a_number1, this_is_a_number2;
+int scanf_result; // Dummy variable to capture scanf's return value
+
+/* 读取输入的浮点数 */
+scanf_result = scanf("%f", &amp;this_is_a_number1);
+
+/* 读取输入的浮点数 */
+scanf_result = scanf("%f", &amp;this_is_a_number2);
+
+/* Your code here */
+
+return 0;
+}
+</pre>
+<p><img alt="" height="84" src="/images/ex23.png" width="286"/></p>
