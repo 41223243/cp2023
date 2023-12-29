@@ -6,8 +6,14 @@
 <p>上了大學，首次與程式相關的課程碰面了，老實說我還是有些忐忑，畢竟在高中時期似乎知有稍微接觸過C++語言，然而我也忘得差不多了，希望這次能夠學到更多的東西。</p>
 <h1>w2~w3</h1>
 <p>上課時間，老師教導我們建立github、replite的帳戶並說明了這些平台的便利性及基本功能，在後來，又說明了如何設定網路，確認是否正確連網，老實說我那時有聽沒有懂，也沒有那個膽識發問，便只能默默的聽著，而再聽見老師說這門課程可透過chatGPT來協助解決問題時，我有了些信心，雖然那東西不一定都對就是了。</p>
+<p>網路設定</p>
+<p></p>
+<p><video controls="controls" height="250" width="400">
+<source src="/images/Network settings.mp4" type="video/mp4"/></video></p>
 <h1>w4</h1>
 <p>這周開始，我們先被要求驗到一個網站中建立考試用的帳戶，在這過程中，班上的同學烏龍百出，像是將姓名的位置顛倒，或是忘記自己設定的密碼等，但還好我都沒這些問題。然而在這周，我們還需要在github中建立一個個人的倉儲，用於日後的評分及作業繳交使用。到這裡似乎都並不難，至少我還沒出現太多的卡關。</p>
+<p></p>
+<p></p>
 <h1>w5</h1>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 包含標準輸出入程式庫的標頭文件{ pkgs }: 
 // https://blog.csdn.net/weixin_38468077/article/details/101069365
@@ -59,6 +65,8 @@ int main() {
 <p><img caption="false" height="200" src="/images/gnuplot_ex1.png" width="400"/></p>
 <p>老實說有點麻煩，我還真的不是很熟這部分，第一次看著影片做就做了快一小時，實在是非常難受。</p>
 <p></p>
+<p><video controls="controls" height="250" width="400">
+<source src="/images/w4_w5.mp4" type="video/mp4"/></video></p>
 <p><br/><br/></p>
 <h1>w6</h1>
 <p>台灣國旗</p>
@@ -1959,3 +1967,293 @@ return 0;
 }
 </pre>
 <p><img alt="" height="84" src="/images/ex23.png" width="286"/></p>
+<h1>CEX_t</h1>
+<p>1</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
+ struct – 3.
+========================= */
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/* ====================
+ struct Mouse.
+==================== */
+struct Mouse
+{
+    int xPos, yPos;
+    char Name[10];
+};
+
+/* ====================
+ Copy Mouse 1
+==================== */
+void cpyMouse1(struct Mouse *tgt, struct Mouse *src)
+{
+    tgt-&gt;xPos = src-&gt;xPos;
+    tgt-&gt;yPos = src-&gt;yPos;
+    strcpy(tgt-&gt;Name, src-&gt;Name);
+}
+
+/* ====================
+ main function.
+==================== */
+int main()
+{
+    struct Mouse myMouse, yourMouse;
+
+    yourMouse.xPos = 10;
+    yourMouse.yPos = 20;
+    strcpy(yourMouse.Name, "Mickey");
+
+    cpyMouse1(&amp;myMouse, &amp;yourMouse);
+
+    printf("Name: %s, X: %d, Y: %d\n", myMouse.Name, myMouse.xPos, myMouse.yPos);
+
+    return 0;
+}</pre>
+<p><img alt="" height="69" src="/images/ct1.png" width="248"/></p>
+<p>2</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* =========================
+ #define 的範例 2.
+========================= */
+#include &lt;stdio.h&gt;
+
+#define TRUE 1
+#define FALSE 0
+#define BOOL int
+
+/* ====================
+如果傳入值大於 10, 則傳回 TRUE
+==================== */
+BOOL is_greater_than_10(int i)
+{
+    if (i &gt; 10)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+/* ====================
+ main function.
+==================== */
+int main()
+{
+    int i;
+    BOOL result;
+
+    printf("Input a number: ");
+
+    // 檢查 scanf 的返回值
+    if (scanf("%d", &amp;i) != 1) {
+        printf("Error reading input.\n");
+        return 1;  // 返回非零值表示錯誤
+    }
+
+    result = is_greater_than_10(i);
+
+    if (result == TRUE)
+        printf("Greater than 10!\n"); /* 大於 10 */
+    else
+        printf("Not greater than 10!\n"); /* 不大於 10 */
+
+    return 0;
+}</pre>
+<p><img alt="" height="87" src="/images/ct2.png" width="290"/></p>
+<p>3</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ &amp; operator.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int *pointer_a, a;
+    pointer_a = &amp;a;
+    a = 10;
+
+    printf("%d, %d\n", a, *pointer_a);
+
+    return 0;
+}</pre>
+<p><img alt="" height="70" src="/images/ct3.png" width="235"/></p>
+<p>4</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+pointer – 6
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+char *str = "Eric";
+
+printf("%c\n", *(str + 0)); /* 也可寫 printf("%c", str[0] ); */
+printf("%c\n", *(str + 1)); /* 也可寫 printf("%c", str[1] ); */
+printf("%c\n", *(str + 2)); /* 也可寫 printf("%c", str[2] ); */
+printf("%c\n", *(str + 3)); /* 也可寫 printf("%c", str[3] ); */
+
+return 0;
+}</pre>
+<p><img alt="" height="115" src="/images/ct4.png" width="238"/></p>
+<p></p>
+<p>5</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ 2d array.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int array[3][3];
+    int x, y;
+
+    array[0][0] = 1;
+    array[0][1] = 2;
+    array[0][2] = 3;
+    array[1][0] = 4;
+    array[1][1] = 5;
+    array[1][2] = 6;
+    array[2][0] = 7;
+    array[2][1] = 8;
+    array[2][2] = 9;
+
+    for (x = 0; x &lt; 3; x++)
+    {
+        for (y = 0; y &lt; 3; y++)
+        {
+            printf("%d,", array[x][y]);
+        }
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="53" src="/images/ct5.png" width="338"/></p>
+<p>6</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ array - 1.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int grade[5]; /* size = 5 的 array */
+    int i;
+
+    grade[0] = 75; /* 1st element */
+    grade[1] = 80; /* 2nd element */
+    grade[2] = 85; /* 3rd element */
+    grade[3] = 70; /* 4th element */
+    grade[4] = 90; /* 5th element */
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("Number %d = %d\n", i, grade[i]);
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="138" src="/images/ct6.png" width="241"/></p>
+<p>7</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ do - while.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+    i = 0;
+    j = 10; /* 迴圈外先設定初值 */
+
+    do
+    {
+        printf("i = %d, ", i);
+        printf("j = %d\n", j);
+        i++;
+        j++;
+    } while (i &lt; 6); /* 檢查條件的地方 */
+
+    return 0;
+}</pre>
+<p><img alt="" height="132" src="/images/ct7.png" width="247"/></p>
+<p>8</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+99 乘法.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x, y;
+
+    for (x = 1; x &lt;= 9; x++)
+    {
+        for (y = 1; y &lt;= 9; y++)
+        {
+            printf("%2d ", x * y);  /* 使用 %2d 以確保數字的對齊性 */
+        }
+        printf("\n");
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="181" src="/images/ct8.png" width="270"/></p>
+<p>9</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+ Program "continue"
+ ==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        if ((i == 1) || (i == 2) || (i == 3))
+        {
+            continue; /* 忽略以後的 program, 回到 for. */
+        }
+        printf("i = %d\n", i);
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="145" src="/images/ct9.png" width="283"/></p>
+<p>10</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">/* ====================
+switch - case 的範例 3.
+==================== */
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char c;
+
+    printf("Input a char: ");
+
+    // 檢查 scanf 的返回值
+    if (scanf("%c", &amp;c) != 1)
+    {
+        printf("Error reading input.\n");
+        return 1; // 返回非零值表示錯誤
+    }
+
+    switch (c)
+    {
+    case 'a':
+        printf("You pressed a\n");
+        break;
+    case 'b':
+        printf("You pressed b\n");
+        break;
+    case 'c':
+        printf("You pressed c\n");
+        break;
+    default:
+        printf("Unrecognized input\n");
+        break;
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="79" src="/images/ct10.png" width="243"/></p>
