@@ -142,32 +142,44 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w7.html'>Next</a> >> w7<br /><h1>w6</h1>
-<p>台灣國旗</p>
-<p><img alt="" height="400" src="./../images/roc_flag.png" width="599"/></p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">// https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_China
-// cc roc_flag.c -lgd -lm to link with gd and math library
-// https://www.rapidtables.com/web/color/RGB_Color.html
-// 幾何形狀著色與繪圖練習
-// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
-#include &lt;stdio.h&gt;
+    <div id="tipue_search_content">ANSIC_T << <a href='ANSIC_T.html'>Previous</a> <a href='期末總結.html'>Next</a> >> 期末總結<br /><h1>程式解釋</h1>
+<p>以w15的題目一為例</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
-#include &lt;math.h&gt;
-
-void draw_roc_flag(gdImagePtr img);
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
-int main() {
-    // width 3: height 2
+#include &lt;math.h&gt;</pre>
+<ol>
+<li>
+<p><code>&lt;stdio.h&gt;</code>：這是標準輸入輸出標頭文件，包含了一些用於輸入和輸出操作的函數，例如 <code>printf</code> 和 <code>scanf</code>。在這個程式中，它可能用於處理一般的輸入輸出操作。</p>
+</li>
+<li>
+<p><code>&lt;gd.h&gt;</code>：這是一個與圖形處理有關的標頭文件。<code>gd</code> 是一個用於生成圖片的函式庫，提供了許多繪圖和圖形處理的功能。這個標頭文件可能被用來操作圖片或進行其他與圖形相關的操作。</p>
+</li>
+<li>
+<p><code>&lt;math.h&gt;</code>：這是數學函式的標頭文件，包含了許多數學運算的函數，例如平方根、三角函數等。在這個程式中，它可能被用來進行數學運算。</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">void draw_roc_flag(gdImagePtr img);</pre>
+<p>這是一個函數原型（function prototype），它聲明了一個名為 <code>draw_roc_flag</code> 的函數，該函數接受一個 <code>gdImagePtr</code> 類型的引數 <code>img</code>，但沒有明確的返回類型（通常默認為 <code>int</code>）。函數的目的是在給定的圖像上繪製一個 "roc flag"（ROC 標誌）。</p>
+<p>通常，這樣的函數原型會在程式碼的開頭進行聲明，以便在後面的程式碼中進行實現。</p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">int main() {
     int width = 1200;
-    int height = (int)(width*2.0 / 3.0);
-
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    int height = (int)(width * 2.0 / 3.0);</pre>
+<p>這是 <code>main</code> 函數的開始部分，它初始化了兩個整數變數 <code>width</code> 和 <code>height</code>。這段程式碼的目的是設定一個圖片的寬度和高度。</p>
+<ol>
+<li>
+<p><code>int width = 1200;</code>：這一行代表將 <code>width</code> 設定為整數值 1200。這可能是所需圖片的寬度，表示圖片的水平大小為 1200 像素。</p>
+</li>
+<li>
+<p><code>int height = (int)(width * 2.0 / 3.0);</code>：這一行計算 <code>height</code> 的值。它使用了 <code>width</code> 變數的值，將其乘以 2.0，然後除以 3.0。這樣的計算可能是為了保持圖片的寬高比（2:3），並將結果轉換為整數。結果存儲在 <code>height</code> 變數中，表示圖片的垂直大小。</p>
+</li>
+</ol>
+</li>
+</ol>
+<div class="line number1 index0 alt2">
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
-
+ 
     draw_roc_flag(img);
-
-    FILE *outputFile = fopen("./../images/roc_flag.png", "wb");
+ 
+    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
         return 1;
@@ -176,256 +188,133 @@ int main() {
     fclose(outputFile);
     gdImageDestroy(img);
     return 0;
-}
-
-void draw_roc_flag(gdImagePtr img) {
-    int width = gdImageSX(img);
-    int height = gdImageSY(img);
-    int red, white, blue;
-    int center_x = (int)(width/4);
-    int center_y = (int)(height/4);
-    int sun_radius = (int)(width/8);
-    // Colors for the flag
-    red = gdImageColorAllocate(img, 242, 0, 0); // Red color
-    white = gdImageColorAllocate(img, 255, 255, 255); // White stripes
-    blue = gdImageColorAllocate(img, 0, 41, 204); // Blue
-    // red rectangle area
-    gdImageFilledRectangle(img, 0, 0, width, height, red);
-    // blue rectangle area
-    gdImageFilledRectangle(img, 0, 0, (int)(width/2.0), (int)(height/2.0), blue);
-    // 目前僅畫出青天白日的輪廓直線, 請嘗試計算所需的點座標完成國旗繪圖
-    draw_white_sun(img, center_x, center_y, sun_radius, white);
-}
-
-void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
-    float angle = 0;
-    int fromX, fromY;
-    int toX, toY;
-    for (int i=0; i&lt;24; i++){
-        angle += 5*M_PI*2/12;
-        //printf("%.3f", angle);
-        toX = center_x + cos(angle)*sun_radius;
-        toY = center_y + sin(angle)*sun_radius;
-        // 只有 i 為 0 時移動到 toX, toY, 其餘都進行直線繪圖
-        if (i!=0){
-            gdImageLine(img, fromX, fromY, toX, toY, color);
-        }
-        fromX = toX;
-        fromY = toY;
-   }
 }</pre>
-<p>美國國旗</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://en.wikipedia.org/wiki/Flag_of_the_United_States
-// https://www.britannica.com/topic/flag-of-the-United-States-of-America
-// 以下為幾乎要繪製完成的美國國旗, 請修改下列原始碼, 令其繪出正確的美國國旗
-#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
-#include &lt;math.h&gt;
-
-void draw_usa_flag(gdImagePtr img);
-void draw_star(gdImagePtr img, int x, int y, int size, int color);
-
-int main() {
-    int width = 800;
-    int height = (int)(width / 1.9);
-
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
-
-    draw_usa_flag(img);
-
-    FILE *outputFile = fopen("./../images/usa_flag.png", "wb");
-    if (outputFile == NULL) {
-        fprintf(stderr, "Error opening the output file.\n");
-        return 1;
-    }
-
-    gdImagePngEx(img, outputFile, 9);
-    fclose(outputFile);
-    gdImageDestroy(img);
-
-    return 0;
-}
-
-void draw_usa_flag(gdImagePtr img) {
+<p>這段程式碼繪製了一個 ROC 標誌（ROC flag）並將其保存為 PNG 圖像文件。讓我解釋一下這段程式碼的主要步驟：</p>
+<ol>
+<li>
+<p><code>gdImagePtr img = gdImageCreateTrueColor(width, height);</code>：這一行創建了一個 <code>gdImagePtr</code> 指針，該指針指向一個真彩色的圖像，寬度為 <code>width</code>，高度為 <code>height</code>。</p>
+</li>
+<li>
+<p><code>gdImageAlphaBlending(img, 0);</code>：這一行設置圖像的 alpha 混合模式。這裡的 <code>0</code> 表示禁用 alpha 混合，即不進行透明度的混合。</p>
+</li>
+<li>
+<p><code>draw_roc_flag(img);</code>：這一行呼叫了之前聲明的 <code>draw_roc_flag</code> 函數，將 ROC 標誌繪製在剛剛創建的圖像上。</p>
+</li>
+<li>
+<p><code>FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");</code>：這一行打開了一個二進制寫入模式的文件，文件名為 "roc_flag_in_gd.png"。這裡準備將繪製好的圖像保存為 PNG 文件。</p>
+</li>
+<li>
+<p><code>if (outputFile == NULL) { ... }</code>：這一行檢查文件是否成功打開。如果打開失敗，會輸出錯誤信息並結束程式。</p>
+</li>
+<li>
+<p><code>gdImagePngEx(img, outputFile, 9);</code>：這一行將圖像以 PNG 格式寫入到已經打開的文件中。數字 <code>9</code> 可能代表 PNG 圖像的壓縮級別，數字越大壓縮越高，範圍一般在 0 到 9 之間。</p>
+</li>
+<li>
+<p><code>fclose(outputFile);</code>：這一行關閉了文件，確保寫入操作完成。</p>
+</li>
+<li>
+<p><code>gdImageDestroy(img);</code>：這一行釋放了先前創建的圖像資源，防止內存洩漏。</p>
+</li>
+<li>
+<p><code>return 0;</code>：程式執行成功，返回 0，表示沒有錯誤發生。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
     int red, white, blue;
-    // Colors for the flag
-    red = gdImageColorAllocate(img, 178, 34, 52); // Red stripes
-    white = gdImageColorAllocate(img, 255, 255, 255); // White stripes
-    blue = gdImageColorAllocate(img, 60, 59, 110); // Blue field
-
-    int stripe_height = height / 13;
-    int stripe_width = width;
-    int star_size = (int)(0.0308 * height); // Corrected star size (half the original size)
-
-    for (int y = 0; y &lt; height; y += stripe_height) {
-        if (y / stripe_height % 2 == 0) {
-            gdImageFilledRectangle(img, 0, y, stripe_width, y + stripe_height, red);
-        } else {
-            gdImageFilledRectangle(img, 0, y, stripe_width, y + stripe_height, white);
-        }
-    }
-
-    gdImageFilledRectangle(img, 0, 0, width * 2 / 5, stripe_height * 7, blue);
-
-    int star_spacing_x = (int)(0.063 * height); // Horizontal spacing between stars
-    int star_spacing_y = (int)(0.054 * height); // Vertical spacing between stars
-    int star_start_x = (int)(0.0616 * height); // Starting X position for stars
-    int star_start_y = (int)(0.0485 * height); // Starting Y position for stars
-
-    for (int row = 0; row &lt; 9; row++) {
-        int starsPerRow = (row % 2 == 0) ? 6 : 5;
-
-        for (int star = 0; star &lt; starsPerRow; star++) {
-            int x = star_start_x + star * star_spacing_x;
-            int y = star_start_y + row * star_spacing_y;
-            draw_star(img, x, y, star_size, white);
-        }
-    }
-}
-
-void draw_star(gdImagePtr img, int x, int y, int size, int color) {
-    gdPoint points[10];
-
-    for (int i = 0; i &lt; 10; i++) {
-        double angle = M_PI / 2 + i * 2 * M_PI / 10;
-        int radius = (i % 2 == 0) ? size : size / 2;
-        points[i].x = x + radius * cos(angle);
-        points[i].y = y + radius * sin(angle);
-    }
-
-    // Fill the star with white color
-    gdImageFilledPolygon(img, points, 10, color);
-}
-</pre>
-<p><img caption="false" height="320" src="./../images/usa_flag.png" width="400"/></p>
-<p>台灣</p>
-<p><img alt="" height="250" src="./../images/roc_flag_in_gd.png" width="375"/></p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_China
-// 內政部國旗參考資料: https://www.moi.gov.tw/cp.aspx?n=10621
-// cc roc_flag_in_gd.c -lgd -lm to link with gd and math library
-// https://www.rapidtables.com/web/color/RGB_Color.html
-// 幾何形狀著色與繪圖練習
-// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
-#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
-#include &lt;math.h&gt;
-
-void draw_roc_flag(gdImagePtr img);
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
-int main() {
-    // width 3: height 2
-    int width = 1200;
-    // 國旗長寬比為 3:2
-    int height = (int)(width*2.0 / 3.0);
-
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
-
-    draw_roc_flag(img);
-
-    FILE *outputFile = fopen("./../images/roc_flag_in_gd.png", "wb");
-    if (outputFile == NULL) {
-        fprintf(stderr, "Error opening the output file.\n");
-        return 1;
-    }
-    gdImagePngEx(img, outputFile, 9);
-    fclose(outputFile);
-    gdImageDestroy(img);
-    return 0;
-}
-
-void draw_roc_flag(gdImagePtr img) {
-    int width = gdImageSX(img);
-    int height = gdImageSY(img);
-    int red, white, blue;
-    // 白日位於青天面積正中央, 因此中心點座標為長寬各 1/4 處
-    int center_x = (int)(width/4);
-    int center_y = (int)(height/4);
-    // gdImageFilledEllipse 需以長寬方向的 diameter 作圖
-    // 由於中央白日圓形的半徑為青天寬度的 1/8
-    // 因此中央白日圓形的直徑為青天寬度的 1/4, 也就是國旗寬度的 1/8
-    // 而且白日十二道光芒的外圍圓形其半徑也是國旗寬度的1/8
-    int sun_radius = (int)(width/8);
-    // 中央白日圓形的直徑等於十二道光芒外圍圓形的半徑
+    int center_x = (int)(width / 4);
+    int center_y = (int)(height / 4);
+    int sun_radius = (int)(width / 8);
     int white_circle_dia = sun_radius;
-    // 中央藍色圓形半徑為中央白日的 1又 2/15
-    int blue_circle_dia = white_circle_dia +  white_circle_dia*2/15;
-    // 根據 https://www.moi.gov.tw/cp.aspx?n=10621 訂定國旗三種顏色值
-    red = gdImageColorAllocate(img, 255, 0, 0); // 紅色
-    white = gdImageColorAllocate(img, 255, 255, 255); // 白色
-    blue = gdImageColorAllocate(img, 0, 0, 149); // 藍色
-    // 根據畫布大小塗上紅色長方形區域
+    int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;</pre>
+<p>這是 <code>draw_roc_flag</code> 函數的開頭部分，該函數負責在給定的 <code>gdImagePtr</code> 圖像上繪製 ROC 標誌。讓我解釋這部分的主要變數和計算：</p>
+<ol>
+<li>
+<p><code>int width = gdImageSX(img);</code> 和 <code>int height = gdImageSY(img);</code>：這兩行獲取了給定圖像 <code>img</code> 的寬度和高度。<code>gdImageSX</code> 返回圖像的寬度，而 <code>gdImageSY</code> 返回圖像的高度。</p>
+</li>
+<li>
+<p><code>int red, white, blue;</code>：這三個變數可能用來表示紅色、白色和藍色的顏色值。這些變數的值可能在後續的程式碼中被賦值，以便使用不同的顏色。</p>
+</li>
+<li>
+<p><code>int center_x = (int)(width / 4);</code> 和 <code>int center_y = (int)(height / 4);</code>：這兩行計算了 ROC 標誌中心點的 x 和 y 坐標。它們使用圖像寬度和高度的四分之一，將標誌放置在圖像的左上角附近。</p>
+</li>
+<li>
+<p><code>int sun_radius = (int)(width / 8);</code>：這行計算了太陽的半徑，使其為圖像寬度的八分之一。這可能是 ROC 標誌中太陽的尺寸。</p>
+</li>
+<li>
+<p><code>int white_circle_dia = sun_radius;</code>：這行設定了一個白色圓的直徑，使其等於太陽的半徑。這個白色圓可能代表標誌的中心。</p>
+</li>
+<li>
+<p><code>int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;</code>：這行計算了一個藍色圓的直徑，使其略大於白色圓，可能用於標誌的外部藍色圈。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">red = gdImageColorAllocate(img, 255, 0, 0);
+    white = gdImageColorAllocate(img, 255, 255, 255);
+    blue = gdImageColorAllocate(img, 0, 0, 149);
+ 
     gdImageFilledRectangle(img, 0, 0, width, height, red);
-    // 青天面積為整面國旗的 1/4, 也是採用長方形塗色
-    gdImageFilledRectangle(img, 0, 0, (int)(width/2.0), (int)(height/2.0), blue);
-    // 先設法以填色畫出六個白色堆疊菱形
-    draw_white_sun(img, center_x, center_y, sun_radius, white);
-    // 利用一個藍色大圓與白色小圓畫出藍色環狀
-    gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
-    gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
-}
-
-void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
-    // M_PI 大小定義於 math.h 標頭檔中, 因為三角函數中採用徑度為角度單位
-    // 因此定義將角度轉為徑度的轉換變數為 deg, 角度值乘上 deg 就可轉為徑度
-    float deg = M_PI/180;
-    // 根據十二道光芒的每一尖角的角度為 15 度, 求出其對應直角三角形的另一角度為 75 度
-    // 求出十二道光芒中任一菱形的 small radius, 也就是菱形的另一個對應小圓的半徑大小
-    float sr = sun_radius/tan(75*deg);
-    int ax, ay, bx, by, dx, dy, ex, ey;
-    gdPoint points[4];
-    /* 在塗上十二道光芒中的單一菱形區域之前, 先以座標點畫線測試是否正確
-    ax = center_x;
-    ay = center_y - sun_radius;
-    bx = center_x - sun_radius*tan(15*deg);
-    by = center_y;
-    ex = center_x;
-    ey = center_y + sun_radius;
-    dx = center_x + sun_radius*tan(15*deg);
-    dy = center_y;
-    // AB
-    gdImageLine(img, ax, ay, bx, by, color);
-    // BE
-    gdImageLine(img, bx, by, ex, ey, color);
-    // ED
-    gdImageLine(img, ex, ey, dx, dy, color);
-    // DA
-    gdImageLine(img, dx, dy, ax, ay, color);
-    */
-    ax = center_x;
-    ay = center_y - sun_radius;
-    bx = center_x - sun_radius*tan(15*deg);
-    by = center_y;
-    ex = center_x;
-    ey = center_y + sun_radius;
-    dx = center_x + sun_radius*tan(15*deg);
-    dy = center_y;
-    // 確定單一菱形區域的塗色正確後, 利用迴圈每次轉動 30 度, 總共轉六次即可塗上十二道光芒區域
-    for (int i=1;i&lt;=6;i++){
-    // A
-    points[0].x = ax+sun_radius*sin(30*deg*i);
-    points[0].y = ay+sun_radius-sun_radius*cos(30*deg*i);
-    // B
-    points[1].x = bx+sr-sr*cos(30*deg*i);
-    points[1].y = by-sr*sin(30*deg*i);
-    // E
-    points[2].x = ex-sun_radius*sin(30*deg*i);
-    points[2].y = ey-(sun_radius-sun_radius*cos(30*deg*i));
-    // D
-    points[3].x = dx-(sr-sr*cos(30*deg*i));
-    points[3].y = dy+sr*sin(30*deg*i);
-    // 對菱形區域範圍塗色
-    gdImageFilledPolygon(img, points, 4, color);
-    // 在菱形區域外圍畫線, 明確界定菱形範圍
-    gdImagePolygon(img, points, 4, color);
-    }
+    gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);</pre>
+<p>這段程式碼為 <code>draw_roc_flag</code> 函數中的一部分，它設定了紅色、白色和藍色的顏色，並使用這些顏色填充了兩個矩形區域。以下是這段程式碼的解釋：</p>
+<ol>
+<li>
+<p><code>red = gdImageColorAllocate(img, 255, 0, 0);</code>：這一行使用 <code>gdImageColorAllocate</code> 函數為紅色分配一個顏色索引，該函數的參數分別是圖像指針 <code>img</code>，以及 RGB（紅、綠、藍） 值。在這裡，<code>255, 0, 0</code> 表示紅色的全彩 RGB 值。</p>
+</li>
+<li>
+<p><code>white = gdImageColorAllocate(img, 255, 255, 255);</code>：這一行為白色分配一個顏色索引，使用全彩 RGB 值 <code>255, 255, 255</code> 表示白色。</p>
+</li>
+<li>
+<p><code>blue = gdImageColorAllocate(img, 0, 0, 149);</code>：這一行為藍色分配一個顏色索引，使用全彩 RGB 值 <code>0, 0, 149</code> 表示藍色。</p>
+</li>
+<li>
+<p><code>gdImageFilledRectangle(img, 0, 0, width, height, red);</code>：這一行使用先前定義的紅色填充了整個圖像區域，即一個矩形，其左上角為座標 (0, 0)，右下角為座標 (width, height)。</p>
+</li>
+<li>
+<p><code>gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);</code>：這一行使用藍色填充了圖像的左上角區域，即一個矩形，其左上角為座標 (0, 0)，右下角為座標 (width / 2, height / 2)。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"> gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
+    gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);</pre>
+<p>這段程式碼在圖像上繪製了兩個填充的橢圓，一個使用藍色填充，另一個使用白色填充。這兩個橢圓可能是 ROC 標誌的一部分，具體地：</p>
+<ol>
+<li>
+<p><code>gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);</code>：這行程式碼創建了一個以 <code>(center_x, center_y)</code> 為中心，長軸和短軸都為 <code>blue_circle_dia</code> 的藍色填充橢圓。</p>
+</li>
+<li>
+<p><code>gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);</code>：這行程式碼創建了一個以 <code>(center_x, center_y)</code> 為中心，長軸和短軸都為 <code>white_circle_dia</code> 的白色填充橢圓。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">int ax = 429;
+    int ay = 125;
+    int bx = 279;
+    int by = 165;
+    int ex = 170;
+    int ey = 274;
+    int dx = 170;
+    int dy = 274;
+ 
+    gdImageLine(img, ax, ay, bx, by, white);
+    gdImageLine(img, bx, by, ex, ey, white);
+    gdImageLine(img, ex, ey, dx, dy, white);
+    gdImageLine(img, dx, dy, ax, ay, white);
 }</pre>
-<br />w5 << <a href='w5.html'>Previous</a> <a href='w7.html'>Next</a> >> w7</div>
+<p>這段程式碼在圖像上使用白色線條繪製了一個四邊形。具體來說：</p>
+<ol>
+<li>
+<p><code>gdImageLine(img, ax, ay, bx, by, white);</code>：這行程式碼繪製了一條從 <code>(ax, ay)</code> 到 <code>(bx, by)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, bx, by, ex, ey, white);</code>：這行程式碼繪製了一條從 <code>(bx, by)</code> 到 <code>(ex, ey)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, ex, ey, dx, dy, white);</code>：這行程式碼繪製了一條從 <code>(ex, ey)</code> 到 <code>(dx, dy)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, dx, dy, ax, ay, white);</code>：這行程式碼繪製了一條從 <code>(dx, dy)</code> 到 <code>(ax, ay)</code> 的白色線條。</p>
+</li>
+</ol>
+<p>這四條線構成了一個四邊形，其頂點分別為 <code>(ax, ay)</code>、<code>(bx, by)</code>、<code>(ex, ey)</code> 和 <code>(dx, dy)</code>。這可能是 ROC 標誌中的一個幾何形狀，這樣的繪製操作可能用於定義標誌的外形。</p>
+<br/><br/><br/><br/><br/></div><br />ANSIC_T << <a href='ANSIC_T.html'>Previous</a> <a href='期末總結.html'>Next</a> >> 期末總結</div>
         
     <!-- footer -->
       <div class="container">
