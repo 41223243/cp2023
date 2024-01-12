@@ -2969,7 +2969,148 @@ int main() {
 </ol>
 </li>
 </ol>
-<div class="line number1 index0 alt2"><code class="csharp preprocessor"></code></div><h1>期末總結</h1>
+<div class="line number1 index0 alt2">
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+ 
+    draw_roc_flag(img);
+ 
+    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+    return 0;
+}</pre>
+<p>這段程式碼繪製了一個 ROC 標誌（ROC flag）並將其保存為 PNG 圖像文件。讓我解釋一下這段程式碼的主要步驟：</p>
+<ol>
+<li>
+<p><code>gdImagePtr img = gdImageCreateTrueColor(width, height);</code>：這一行創建了一個 <code>gdImagePtr</code> 指針，該指針指向一個真彩色的圖像，寬度為 <code>width</code>，高度為 <code>height</code>。</p>
+</li>
+<li>
+<p><code>gdImageAlphaBlending(img, 0);</code>：這一行設置圖像的 alpha 混合模式。這裡的 <code>0</code> 表示禁用 alpha 混合，即不進行透明度的混合。</p>
+</li>
+<li>
+<p><code>draw_roc_flag(img);</code>：這一行呼叫了之前聲明的 <code>draw_roc_flag</code> 函數，將 ROC 標誌繪製在剛剛創建的圖像上。</p>
+</li>
+<li>
+<p><code>FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");</code>：這一行打開了一個二進制寫入模式的文件，文件名為 "roc_flag_in_gd.png"。這裡準備將繪製好的圖像保存為 PNG 文件。</p>
+</li>
+<li>
+<p><code>if (outputFile == NULL) { ... }</code>：這一行檢查文件是否成功打開。如果打開失敗，會輸出錯誤信息並結束程式。</p>
+</li>
+<li>
+<p><code>gdImagePngEx(img, outputFile, 9);</code>：這一行將圖像以 PNG 格式寫入到已經打開的文件中。數字 <code>9</code> 可能代表 PNG 圖像的壓縮級別，數字越大壓縮越高，範圍一般在 0 到 9 之間。</p>
+</li>
+<li>
+<p><code>fclose(outputFile);</code>：這一行關閉了文件，確保寫入操作完成。</p>
+</li>
+<li>
+<p><code>gdImageDestroy(img);</code>：這一行釋放了先前創建的圖像資源，防止內存洩漏。</p>
+</li>
+<li>
+<p><code>return 0;</code>：程式執行成功，返回 0，表示沒有錯誤發生。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">void draw_roc_flag(gdImagePtr img) {
+    int width = gdImageSX(img);
+    int height = gdImageSY(img);
+    int red, white, blue;
+    int center_x = (int)(width / 4);
+    int center_y = (int)(height / 4);
+    int sun_radius = (int)(width / 8);
+    int white_circle_dia = sun_radius;
+    int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;</pre>
+<p>這是 <code>draw_roc_flag</code> 函數的開頭部分，該函數負責在給定的 <code>gdImagePtr</code> 圖像上繪製 ROC 標誌。讓我解釋這部分的主要變數和計算：</p>
+<ol>
+<li>
+<p><code>int width = gdImageSX(img);</code> 和 <code>int height = gdImageSY(img);</code>：這兩行獲取了給定圖像 <code>img</code> 的寬度和高度。<code>gdImageSX</code> 返回圖像的寬度，而 <code>gdImageSY</code> 返回圖像的高度。</p>
+</li>
+<li>
+<p><code>int red, white, blue;</code>：這三個變數可能用來表示紅色、白色和藍色的顏色值。這些變數的值可能在後續的程式碼中被賦值，以便使用不同的顏色。</p>
+</li>
+<li>
+<p><code>int center_x = (int)(width / 4);</code> 和 <code>int center_y = (int)(height / 4);</code>：這兩行計算了 ROC 標誌中心點的 x 和 y 坐標。它們使用圖像寬度和高度的四分之一，將標誌放置在圖像的左上角附近。</p>
+</li>
+<li>
+<p><code>int sun_radius = (int)(width / 8);</code>：這行計算了太陽的半徑，使其為圖像寬度的八分之一。這可能是 ROC 標誌中太陽的尺寸。</p>
+</li>
+<li>
+<p><code>int white_circle_dia = sun_radius;</code>：這行設定了一個白色圓的直徑，使其等於太陽的半徑。這個白色圓可能代表標誌的中心。</p>
+</li>
+<li>
+<p><code>int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;</code>：這行計算了一個藍色圓的直徑，使其略大於白色圓，可能用於標誌的外部藍色圈。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">red = gdImageColorAllocate(img, 255, 0, 0);
+    white = gdImageColorAllocate(img, 255, 255, 255);
+    blue = gdImageColorAllocate(img, 0, 0, 149);
+ 
+    gdImageFilledRectangle(img, 0, 0, width, height, red);
+    gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);</pre>
+<p>這段程式碼為 <code>draw_roc_flag</code> 函數中的一部分，它設定了紅色、白色和藍色的顏色，並使用這些顏色填充了兩個矩形區域。以下是這段程式碼的解釋：</p>
+<ol>
+<li>
+<p><code>red = gdImageColorAllocate(img, 255, 0, 0);</code>：這一行使用 <code>gdImageColorAllocate</code> 函數為紅色分配一個顏色索引，該函數的參數分別是圖像指針 <code>img</code>，以及 RGB（紅、綠、藍） 值。在這裡，<code>255, 0, 0</code> 表示紅色的全彩 RGB 值。</p>
+</li>
+<li>
+<p><code>white = gdImageColorAllocate(img, 255, 255, 255);</code>：這一行為白色分配一個顏色索引，使用全彩 RGB 值 <code>255, 255, 255</code> 表示白色。</p>
+</li>
+<li>
+<p><code>blue = gdImageColorAllocate(img, 0, 0, 149);</code>：這一行為藍色分配一個顏色索引，使用全彩 RGB 值 <code>0, 0, 149</code> 表示藍色。</p>
+</li>
+<li>
+<p><code>gdImageFilledRectangle(img, 0, 0, width, height, red);</code>：這一行使用先前定義的紅色填充了整個圖像區域，即一個矩形，其左上角為座標 (0, 0)，右下角為座標 (width, height)。</p>
+</li>
+<li>
+<p><code>gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);</code>：這一行使用藍色填充了圖像的左上角區域，即一個矩形，其左上角為座標 (0, 0)，右下角為座標 (width / 2, height / 2)。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"> gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
+    gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);</pre>
+<p>這段程式碼在圖像上繪製了兩個填充的橢圓，一個使用藍色填充，另一個使用白色填充。這兩個橢圓可能是 ROC 標誌的一部分，具體地：</p>
+<ol>
+<li>
+<p><code>gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);</code>：這行程式碼創建了一個以 <code>(center_x, center_y)</code> 為中心，長軸和短軸都為 <code>blue_circle_dia</code> 的藍色填充橢圓。</p>
+</li>
+<li>
+<p><code>gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);</code>：這行程式碼創建了一個以 <code>(center_x, center_y)</code> 為中心，長軸和短軸都為 <code>white_circle_dia</code> 的白色填充橢圓。</p>
+</li>
+</ol>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">int ax = 429;
+    int ay = 125;
+    int bx = 279;
+    int by = 165;
+    int ex = 170;
+    int ey = 274;
+    int dx = 170;
+    int dy = 274;
+ 
+    gdImageLine(img, ax, ay, bx, by, white);
+    gdImageLine(img, bx, by, ex, ey, white);
+    gdImageLine(img, ex, ey, dx, dy, white);
+    gdImageLine(img, dx, dy, ax, ay, white);
+}</pre>
+<p>這段程式碼在圖像上使用白色線條繪製了一個四邊形。具體來說：</p>
+<ol>
+<li>
+<p><code>gdImageLine(img, ax, ay, bx, by, white);</code>：這行程式碼繪製了一條從 <code>(ax, ay)</code> 到 <code>(bx, by)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, bx, by, ex, ey, white);</code>：這行程式碼繪製了一條從 <code>(bx, by)</code> 到 <code>(ex, ey)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, ex, ey, dx, dy, white);</code>：這行程式碼繪製了一條從 <code>(ex, ey)</code> 到 <code>(dx, dy)</code> 的白色線條。</p>
+</li>
+<li>
+<p><code>gdImageLine(img, dx, dy, ax, ay, white);</code>：這行程式碼繪製了一條從 <code>(dx, dy)</code> 到 <code>(ax, ay)</code> 的白色線條。</p>
+</li>
+</ol>
+<p>這四條線構成了一個四邊形，其頂點分別為 <code>(ax, ay)</code>、<code>(bx, by)</code>、<code>(ex, ey)</code> 和 <code>(dx, dy)</code>。這可能是 ROC 標誌中的一個幾何形狀，這樣的繪製操作可能用於定義標誌的外形。</p>
+<br/><br/><br/><br/><br/></div><h1>期末總結</h1>
 <p>我個人是覺得應該有80分，該做的我已經盡力去做了，如果不是有些同學問題太多，我的時間也不至於會被拖那麼多。也有持續補足自身所欠缺的知識儲備，希望能過。</p>
 <p><strong>A: 是否按照進度明確標示倉儲的改版歷程。是，一定的。</strong></p>
 <p><strong>B: 是否根據 IPv4 與 IPv6 網路環境設定進行作法討論。是，於w2~w3有影片。</strong></p>
